@@ -88,7 +88,7 @@ extension LocationResultViewController: MKMapViewDelegate {
     }
     
     private func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationView.DragState, fromOldState oldState: MKAnnotationView.DragState) -> StudentInformationModel {
-        return StudentInformationModel(mapString: studentInformation?.mapString ?? "", mediaURL: studentInformation?.mediaURL ?? "", uniqueKey: studentInformation!.uniqueKey, location: view.annotation!.coordinate)
+        return StudentInformationModel(firstName: OnTheMapService.Auth.firstName, lastName: OnTheMapService.Auth.lastName, mapString: studentInformation?.mapString ?? "", mediaURL: studentInformation?.mediaURL ?? "", uniqueKey: studentInformation!.uniqueKey, location: view.annotation!.coordinate)
     }
     
     private func showLoading(_ showIndicator: Bool) {
@@ -97,7 +97,6 @@ extension LocationResultViewController: MKMapViewDelegate {
         } else {
             self.indicator.stopAnimating()
         }
-        
         self.indicator.isHidden = !showIndicator
     }
 }

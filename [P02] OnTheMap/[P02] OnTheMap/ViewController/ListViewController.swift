@@ -18,7 +18,6 @@ class ListViewController : UIViewController, UITableViewDataSource, UITableViewD
 
     weak var delegate: ListViewControllerDelegate?
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
@@ -46,12 +45,11 @@ class ListViewController : UIViewController, UITableViewDataSource, UITableViewD
         let student = StudentData.sharedInstance().students[indexPath.row]
         
         cell.contentView.backgroundColor = UIColor.white
-        content.text = "\(String(describing: student.firstName))" + " " + "\(String(describing: student.lastName))"
+        content.text = student.fullName
         content.secondaryText = "\(student.mediaURL )"
         content.secondaryTextProperties.color = .blue
-
-        cell.contentConfiguration = content
         
+        cell.contentConfiguration = content
         return cell
     }
     

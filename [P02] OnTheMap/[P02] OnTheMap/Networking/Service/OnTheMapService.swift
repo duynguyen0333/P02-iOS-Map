@@ -46,6 +46,7 @@ class OnTheMapService {
             if let response = response {
                 Auth.sessionId = response.session.id
                 Auth.userId = response.account.key
+            
                 getUserInformation { (success, error) in
                     if success {
                         print("Login Success")
@@ -59,10 +60,12 @@ class OnTheMapService {
     }
     
     class func getUserInformation(completionHandler: @escaping (Bool, Error?) -> Void) {
-        ServiceCommand.taskForGetRequest(configKey: "", url: Endpoints.getUserInformation.url, responseType: UserDataResponse.self ) { response, error in
+        ServiceCommand.taskForGetRequest(configKey: "udacity", url: Endpoints.getUserInformation.url, responseType: UserProfileModel.self ) { response, error in
             if let response = response {
+                print("UserData response \(response.firstName)")
                 Auth.firstName = response.firstName
                 Auth.lastName = response.lastName
+                print("UserData \(Auth.firstName)")
                 completionHandler(true, nil)
             } else {
                 completionHandler(false, error)

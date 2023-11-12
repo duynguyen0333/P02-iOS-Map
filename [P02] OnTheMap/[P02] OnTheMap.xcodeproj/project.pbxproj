@@ -26,7 +26,6 @@
 		01CF4EED2AF88DD900CFDC13 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CF4EEC2AF88DD900CFDC13 /* ListViewController.swift */; };
 		01CF4EF12AF896FD00CFDC13 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CF4EF02AF896FD00CFDC13 /* LoginResponse.swift */; };
 		01CF4EF32AF8971F00CFDC13 /* StudentLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CF4EF22AF8971F00CFDC13 /* StudentLocationResponse.swift */; };
-		01CF4EF92AF897A000CFDC13 /* UserDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CF4EF82AF897A000CFDC13 /* UserDataResponse.swift */; };
 		01CF4EFB2AF897BF00CFDC13 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CF4EFA2AF897BF00CFDC13 /* LoginRequest.swift */; };
 		01CF4EFE2AF897F300CFDC13 /* CredentialModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CF4EFD2AF897F300CFDC13 /* CredentialModel.swift */; };
 		01CF4F002AF8982600CFDC13 /* StudentInformationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CF4EFF2AF8982600CFDC13 /* StudentInformationModel.swift */; };
@@ -55,7 +54,6 @@
 		01CF4EEC2AF88DD900CFDC13 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		01CF4EF02AF896FD00CFDC13 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		01CF4EF22AF8971F00CFDC13 /* StudentLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationResponse.swift; sourceTree = "<group>"; };
-		01CF4EF82AF897A000CFDC13 /* UserDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataResponse.swift; sourceTree = "<group>"; };
 		01CF4EFA2AF897BF00CFDC13 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		01CF4EFD2AF897F300CFDC13 /* CredentialModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialModel.swift; sourceTree = "<group>"; };
 		01CF4EFF2AF8982600CFDC13 /* StudentInformationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInformationModel.swift; sourceTree = "<group>"; };
@@ -160,7 +158,6 @@
 			children = (
 				01CF4EF02AF896FD00CFDC13 /* LoginResponse.swift */,
 				01CF4EF22AF8971F00CFDC13 /* StudentLocationResponse.swift */,
-				01CF4EF82AF897A000CFDC13 /* UserDataResponse.swift */,
 				010E16CC2AF936B6000A8314 /* OnTheMapErrorResponse.swift */,
 			);
 			path = Responses;
@@ -259,7 +256,6 @@
 				01CF4EFE2AF897F300CFDC13 /* CredentialModel.swift in Sources */,
 				01CF4ED22AF88D4E00CFDC13 /* AppDelegate.swift in Sources */,
 				01CF4EEB2AF88DCC00CFDC13 /* MapViewController.swift in Sources */,
-				01CF4EF92AF897A000CFDC13 /* UserDataResponse.swift in Sources */,
 				01CF4EF32AF8971F00CFDC13 /* StudentLocationResponse.swift in Sources */,
 				0104375D2AFB2B27001ADF40 /* UserProfileModel.swift in Sources */,
 				018344D02AFCAFFF008737FA /* StudentModel.swift in Sources */,
