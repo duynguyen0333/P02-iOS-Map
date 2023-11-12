@@ -41,13 +41,8 @@ class TabBarController: UITabBarController, MapViewControllerDeledate, ListViewC
     @objc func refreshLocationAction() {
         let mapLocationVC = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
         let studentLocationVC = self.storyboard?.instantiateViewController(withIdentifier: "ListViewController") as! ListViewController
-        
-//        mapLocationVC.showLoading(true)
-//        studentLocationVC.showLoading(true)
         mapLocationVC.getLocationPins()
         studentLocationVC.getStudentsLocation()
-        
-        
     }
     
     @objc func addLocationButtonAction() {

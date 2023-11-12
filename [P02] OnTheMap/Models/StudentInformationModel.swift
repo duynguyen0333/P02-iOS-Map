@@ -20,9 +20,9 @@ struct StudentInformationModel: Codable {
     var createdAt: String? = nil
     var updatedAt: String? = nil
     
-    init(mapString: String, mediaURL: String, uniqueKey: String, location: CLLocationCoordinate2D) {
-        self.firstName = "Nguyen"
-        self.lastName = "Duy"
+    init(firstName: String, lastName: String ,mapString: String, mediaURL: String, uniqueKey: String, location: CLLocationCoordinate2D) {
+        self.firstName = firstName
+        self.lastName = lastName
         self.longitude = location.longitude
         self.latitude = location.latitude
         self.mapString = mapString
@@ -31,3 +31,16 @@ struct StudentInformationModel: Codable {
     }
 }
 
+extension StudentInformationModel {
+    var fullName: String {
+        get  {
+            var fullName : String = ""
+            if let firstName = self.firstName, let lastName = self.lastName {
+                let first = (firstName.isEmpty) ? "Unknown" : firstName
+                let last = (lastName.isEmpty) ? "" : lastName
+                fullName =  "\(first) \(last)" + " - " + "\(mapString)"
+            }
+            return fullName
+        }
+    }
+}

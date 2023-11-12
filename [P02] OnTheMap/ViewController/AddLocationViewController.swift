@@ -23,7 +23,6 @@ class AddLocationViewController : UIViewController {
         showLoading(true)
         let newLocation = locationTextField.text
         
-        
 //        guard let url = URL(string: self.websiteTextField.text!), UIApplication.shared.canOpenURL(url) else {
 //            self.showAlert(title: "Invalid URL", message: "Please include 'http://' in your link.")
 //            return
@@ -47,6 +46,7 @@ class AddLocationViewController : UIViewController {
     private func geocodePosition(newLocation: String) {
         CLGeocoder().geocodeAddressString(newLocation) { (newMarker, error) in
             if let error = error {
+                self.showLoading(false)
                 self.showAlert(title: "Location Not Found", message: error.localizedDescription)
             } else {
                 var location: CLLocation?
@@ -64,7 +64,7 @@ class AddLocationViewController : UIViewController {
     }
     
     private func showNewLocation(_ location: CLLocationCoordinate2D) {
-        let location = StudentInformationModel(mapString : locationTextField.text!, mediaURL: websiteTextField.text!, uniqueKey: OnTheMapService.Auth.userId, location: location)
+        let location = StudentInformationModel(firstName: OnTheMapService.Auth.firstName, lastName: OnTheMapService.Auth.lastName, mapString : locationTextField.text!, mediaURL: websiteTextField.text!, uniqueKey: OnTheMapService.Auth.userId, location: location)
         self.performSegue(withIdentifier: "showLocation", sender: location)
     }
     

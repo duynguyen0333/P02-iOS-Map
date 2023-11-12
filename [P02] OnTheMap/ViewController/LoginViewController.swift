@@ -20,6 +20,7 @@ class LoginViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         emailTextField.text = ""
         passwordTextField.text = ""
     }
@@ -32,7 +33,7 @@ class LoginViewController: UIViewController {
                 if success {
                     self.performSegue(withIdentifier: "Login", sender: self)
                 } else {
-                    self.showAlert(title: "Error", message: error?.localizedDescription ?? "Login Failed")
+                    self.showAlert(title: "The credentials were in correct", message: "Please check your email or your password")
                 }
             }
         }

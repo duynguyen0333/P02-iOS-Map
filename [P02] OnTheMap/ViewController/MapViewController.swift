@@ -16,7 +16,6 @@ protocol MapViewControllerDeledate: AnyObject {
 class MapViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
-    var locations = [StudentInformationModel]()
     var annotations = [MKPointAnnotation]()
     
     weak var delegate: MapViewControllerDeledate?
@@ -28,17 +27,18 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     func getLocationPins() {
         self.showLoading(true)
+        
         OnTheMapService.getStudentLocations { locations, error in
             self.showLoading(false)
+            StudentData.sharedInstance().students = locations ?? []
             for location in locations ?? [] {
                 let annotation = MKPointAnnotation()
                 annotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude ?? 0.0, longitude: location.longitude ?? 0.0)
-                annotation.title = "\(location.firstName ?? "") " + "\(location.lastName ?? "")"
+                annotation.title = location.fullName
                 annotation.subtitle = location.mediaURL
                 self.annotations.append(annotation)
             }
             self.mapView?.addAnnotations(self.annotations)
-
         }
     }
     

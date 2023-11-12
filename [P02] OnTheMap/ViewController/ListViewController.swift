@@ -18,49 +18,43 @@ class ListViewController : UIViewController, UITableViewDataSource, UITableViewD
 
     weak var delegate: ListViewControllerDelegate?
 
-    var students = [StudentInformationModel]()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
         getStudentsLocation()
-//        tableViewLocation.dataSource = self
-//        tabelViewLocation.delegate = self
-    } 
+    }
     
     func getStudentsLocation() {
         self.showLoading(true)
-        print("reload ")
         OnTheMapService.getStudentLocations() {response, error in
             DispatchQueue.main.async {
-                self.students = response ?? []
+                StudentData.sharedInstance().students = response ?? []
                 self.showLoading(false)
-                self.tableViewLocation?.reloadData()ß
+                self.tableViewLocation?.reloadData()
             }
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return students.count
+        return StudentData.sharedInstance().students.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath)
         var content = cell.defaultContentConfiguration()
-        let student = students[indexPath.row]
+        let student = StudentData.sharedInstance().students[indexPath.row]
         
         cell.contentView.backgroundColor = UIColor.white
-        content.text = "\(String(describing: student.firstName))" + " " + "\(student.mapString )"
+        content.text = student.fullName
         content.secondaryText = "\(student.mediaURL )"
         content.secondaryTextProperties.color = .blue
-
-        cell.contentConfiguration = content
         
+        cell.contentConfiguration = content
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let student = students[indexPath.row]
+        let student = StudentData.sharedInstance().students[indexPath.row]
         openLink(student.mediaURL )
     }
 
