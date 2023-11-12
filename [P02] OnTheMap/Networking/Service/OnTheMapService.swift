@@ -41,7 +41,7 @@ class OnTheMapService {
     }
     
     class func login(email: String, password: String, completionHandler: @escaping (Bool, Error?) -> Void) {
-        let request = LoginRequest(username: "duynguyen0333@gmail.com", password: "Angrybirds_40006")
+        let request = LoginRequest(username: email, password: password)
         ServiceCommand.taskForPostRequest(configKey: "udacity", url: Endpoints.login.url, request: request, responseType: LoginResponse.self) { (response, error) in
             if let response = response {
                 Auth.sessionId = response.session.id

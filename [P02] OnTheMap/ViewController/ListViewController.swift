@@ -30,11 +30,12 @@ class ListViewController : UIViewController, UITableViewDataSource, UITableViewD
     
     func getStudentsLocation() {
         self.showLoading(true)
+        print("reload ")
         OnTheMapService.getStudentLocations() {response, error in
             DispatchQueue.main.async {
                 self.students = response ?? []
-                self.tableViewLocation?.reloadData()
-//                self.showLoading(false)
+                self.showLoading(false)
+                self.tableViewLocation?.reloadData()ß
             }
         }
     }
